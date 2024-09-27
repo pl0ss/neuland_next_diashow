@@ -3,20 +3,23 @@
 // =======================================================================
 
 const images = [    
-    {src: "home.png", text: "Home"},
-    {src: "timetable2.png", text: "Stundenplan"},
-    {src: "timetable.png", text: "Stundenplan"},
-    {src: "map.png", text: "Map"},
-    {src: "food.png", text: "Food"},
-    {src: "news.png", text: "News"},
-    {src: "events.png", text: "Events"},
-    {src: "roomsearch.png", text: "Room Search"},
-    {src: "library.png", text: "Library"},
+    {src: "home.png", text_de: "Home", text_en: "Home"},
+    {src: "timetable2.png", text_de: "Stundenplan", text_en: "Timetable"},
+    {src: "timetable.png", text_de: "Stundenplan", text_en: "Timetable"},
+    {src: "map.png", text_de: "Karte", text_en: "Map"},
+    {src: "food.png", text_de: "Essen", text_en: "Food"},
+    {src: "news.png", text_de: "News", text_en: "News"},
+    {src: "events.png", text_de: "Events", text_en: "Events"},
+    {src: "roomsearch.png", text_de: "Raumsuche", text_en: "Room Search"},
+    {src: "library.png", text_de: "Bibliothek", text_en: "Library"},
 ];
+
+let language = 'de'; // Default festlegen ['de', 'en'] in url: ?lang=en ODER ?language=en
 
 let intervalTime = 5; // [Sekunden] in url: ?time=5 
 
 const frame = false; // Bilder in iP frame
+
 
 // Vars
 // =======================================================================
@@ -32,7 +35,6 @@ let progressBars;
 
 function init() {
     read_time_from_url();
-    console.log(intervalTime)
 
     document.documentElement.style.setProperty('--animation_time', `${intervalTime}s`)
 
@@ -57,6 +59,12 @@ function read_time_from_url() {
             if(url_vars[index].split('=')[0] == "time"){
                 intervalTime = url_vars[index].split('=')[1];
             }
+            if(url_vars[index].split('=')[0] == "lang"){
+                language = url_vars[index].split('=')[1];
+            }
+            if(url_vars[index].split('=')[0] == "language"){
+                language = url_vars[index].split('=')[1];
+            }
         }
     }
 }
@@ -73,8 +81,8 @@ function updateSlideshow() {
     const textElement = document.getElementById('imagetext');
 
     // Setzt das neue Bild und den neuen Text
-    imageElement.src = `imgs/${images[currentIndex].src}`;
-    textElement.textContent = images[currentIndex].text;
+    imageElement.src = `imgs/${language}/${images[currentIndex].src}`;
+    textElement.textContent = images[currentIndex][`text_${language}`];
 
     // Aktualisiert die Progress Bars
     progressBars.forEach((bar, index) => {
