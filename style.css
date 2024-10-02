@@ -104,6 +104,7 @@ main > section {
 
 #app_info_imgs > img {
     width: 200px;
+    height: 200px;
     margin: 0px 10px 0px 10px;
 }
 
