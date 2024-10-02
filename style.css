@@ -57,7 +57,7 @@ main > section {
 
 
 #imagetext {
-    font-size: 25px;
+    font-size: 30px;
     margin-top: 10px;
     font-weight: bold;
 }
@@ -102,13 +102,16 @@ main > section {
     }
 }
 
-#app_info_imgs > img {
-    width: 200px;
-    height: 200px;
-    margin: 0px 10px 0px 10px;
+#app_info_imgs > div, #app_info_badge > div {
+    margin: 0px 30px 0px 30px;
 }
 
-#app_info_imgs > img:nth-child(1) {
+#app_info_imgs > div > img {
+    width: 200px;
+    height: 200px;
+}
+
+#app_info_imgs > div:nth-child(1) > img {
     border-radius: 50px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
