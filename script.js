@@ -84,11 +84,20 @@ function updateSlideshow() {
     imageElement.src = `imgs/${language}/${images[currentIndex].src}`;
     textElement.textContent = images[currentIndex][`text_${language}`];
 
+    // Setzt alle Progress Bars zurück
+    if(currentIndex == 0) {
+        progressBars.forEach((bar, index) => {
+            bar.classList.remove('progressbar_current');
+        });
+
+        void progressBars[0].offsetWidth; // Dies erzwingt einen Reflow und startet die Animation neu
+    }
+
     // Aktualisiert die Progress Bars
     progressBars.forEach((bar, index) => {
         if(index == currentIndex) {
             bar.classList.add('progressbar_current');
-        } else {
+        } else if(index > currentIndex) {
             bar.classList.remove('progressbar_current');
         }
     });
