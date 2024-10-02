@@ -23,11 +23,13 @@ body {
 
 main {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 main > section {
     width: 30vw;
+    min-width: 500px;
 }
 
 .slideshow_container {
@@ -70,25 +72,19 @@ main > section {
     width: 25px;
     height: 7px;
     border-radius: 5px;
+    /* transition: background-color 0.5s ease; */
 }
 
 .progressbar {
     margin: 0px 5px 0px 5px;
-    transition: background-color 0.5s ease;
-
     position: relative;
 }
 .progressbar > div {
     background-color: var(--progressbar_background);
-    transition: background-color 0.5s ease;
-
     position: absolute;
 }
 
 .progressbar > div > div {
-    background-color: var(--progressbar_background);
-    transition: background-color 0.5s ease;
-
     position: absolute;
 }
 
