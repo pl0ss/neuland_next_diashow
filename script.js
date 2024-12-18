@@ -11,7 +11,7 @@ const images = [
     {src: "news.png", text_de: "News", text_en: "News"},
     {src: "events.png", text_de: "Events", text_en: "Events"},
     {src: "roomsearch.png", text_de: "Raumsuche", text_en: "Room Search"},
-    {src: "library.png", text_de: "Bibliothek", text_en: "Library"},
+    // {src: "library.png", text_de: "Bibliothek", text_en: "Library"},
 ];
 
 let language = 'de'; // Default festlegen ['de', 'en'] in url: ?lang=en ODER ?language=en
